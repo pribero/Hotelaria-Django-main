@@ -1,0 +1,29 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+    ADD COLABORADOR
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/addColabo.css' %}">
+{% endblock %}
+
+{% block body %}
+    <h1>CADASTRAR ATENDENTE</h1>
+
+     <form method="POST">
+        {% csrf_token %}
+        <div>
+            <label for="username">Nome atendente: </label>
+            {{form.username}}
+        </div>
+        <div>
+            <label for="password">Senha atendente: </label>
+            {{form.password}}
+        </div>
+
+        <button type="submit">Cadastrar</button>
+
+     </form>
+{% endblock %}

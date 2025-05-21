@@ -1,0 +1,48 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+    ADD QUARTO
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/addQuartos.css' %}">
+{% endblock %}
+
+{% block body %}
+    <div class="form-wrapper"> {# Nova div para centralizar o formulário #}
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h2>Cadastrar Novo Quarto</h2> {# Adicionei um título para o formulário #}
+            <div>
+                <label for="id_num_quarto">Numero do Quarto: </label>
+                {{ form.num_Quarto }}
+            </div>
+            <div>
+                <label for="id_qtd_hospedes">Quantidade de Hospedes: </label>
+                {{ form.qtd_Hospedes }}
+            </div>
+            <div>
+                <label for="id_tipo">Tipo do Quarto: </label>
+                {{ form.tipo}}
+            </div>
+            <div>
+                <label for="id_valor"> Valor do Quarto: </label>
+                {{ form.valor}}
+            </div>
+            <div>
+                <label for="id_descricao"> Descrição do Quarto: </label>
+                {{ form.descricao}}
+            </div>
+            <div>
+                <label for="id_status"> Status: </label>
+                {{ form.status}}
+            </div>
+            <div>
+                <label for="id_img"> Imagem do Quarto: </label>
+                {{ form.img}}
+            </div>
+            <button type="submit">CADASTRAR</button>
+        </form>
+    </div>
+{% endblock %}

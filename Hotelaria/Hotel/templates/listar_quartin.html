@@ -1,0 +1,54 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+    QUARTOS
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/listar_quartin.css' %}">
+{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <h1>Quartos Disponíveis</h1>
+
+    <!-- Botões de filtro por tipo de quarto -->
+    <div class="filtros">
+        <a href="{% url 'listar_quartin' 'Solteiro' %}" class="btn">Solteiro</a>
+        <a href="{% url 'listar_quartin' 'Premium' %}" class="btn">Premium</a>
+        <a href="{% url 'listar_quartin' 'Plus' %}" class="btn">Plus</a>
+        <a href="{% url 'listar_quartin' %}" class="btn">Todos</a>
+    </div>
+
+    <!-- Mostrando qual tipo tá filtrado -->
+    {% if tipo_selecionado %}
+        <h2>Filtrando por: {{ tipo_selecionado }}</h2>
+    {% endif %}
+
+    <!-- Lista de quartos -->
+    <div class="quartos">
+        {% for quarto in quartos %}
+            <div class="quarto-card">
+                <img src="{{ quarto.img.url }}" alt="Imagem do quarto">
+                <h3>Quarto nº {{ quarto.num_Quarto }}</h3>
+                <p><strong>Tipo:</strong> {{ quarto.tipo }}</p>
+                <p><strong>Hóspedes:</strong> {{ quarto.qtd_Hospedes }}</p>
+                <p><strong>Valor:</strong> R$ {{ quarto.valor }}</p>
+                <p><strong>Status:</strong> 
+                    {% if quarto.status %}
+                        Disponível
+                    {% else %}
+                        Reservado
+                    {% endif %}
+                </p>
+                <p>{{ quarto.descricao }}</p>
+            </div>
+        {% empty %}
+            <p>Nenhum quarto encontrado para esse filtro.</p>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

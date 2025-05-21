@@ -1,0 +1,96 @@
+/* Container geral */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f9f9f9;
+  border-radius: 8px;
+}
+
+/* Título principal */
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 25px;
+}
+
+/* Botões de filtro */
+.filtros {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.filtros .btn {
+  background-color: #3b82f6; /* azul bacanudo */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.filtros .btn:hover {
+  background-color: #2563eb; /* azul mais escuro no hover */
+}
+
+/* Título do filtro ativo */
+h2 {
+  text-align: center;
+  color: #555;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+/* Grid dos quartos */
+.quartos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+/* Card do quarto */
+.quarto-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
+  padding: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quarto-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgb(0 0 0 / 0.15);
+}
+
+/* Imagem do quarto */
+.quarto-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+/* Texto do card */
+.quarto-card h3 {
+  margin: 0 0 10px 0;
+  color: #222;
+}
+
+.quarto-card p {
+  margin: 4px 0;
+  color: #555;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.quarto-card p strong {
+  color: #333;
+}
