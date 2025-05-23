@@ -10,20 +10,21 @@
 {% endblock %}
 
 {% block body %}
-    <h1>CADASTRAR ATENDENTE</h1>
+    <div class="form-div">
+        <form method="POST">
+            <h1>Cadastrar Atendente</h1>
+            {% csrf_token %}
+            <div class="form-tag">
+                <label for="username">Nome atendente: </label>
+                {{form.username}}
+            </div>
+            <div class="form-tag">
+                <label for="password">Senha atendente: </label>
+                {{form.password}}
+            </div>
 
-     <form method="POST">
-        {% csrf_token %}
-        <div>
-            <label for="username">Nome atendente: </label>
-            {{form.username}}
-        </div>
-        <div>
-            <label for="password">Senha atendente: </label>
-            {{form.password}}
-        </div>
+            <button type="submit">Cadastrar</button>
 
-        <button type="submit">Cadastrar</button>
-
-     </form>
+        </form>
+    </div>
 {% endblock %}

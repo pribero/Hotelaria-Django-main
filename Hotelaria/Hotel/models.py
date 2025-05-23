@@ -30,9 +30,8 @@ class quarto(models.Model):
         x = f"{self.tipo} - {self.num_Quarto}"
         return x
 
-
 class Atendente(models.Model):
-    username = models.TextField(max_length=255)
+    username = models.CharField(max_length=255)
     password = models.CharField(max_length=128)
 
     def __str__(self):

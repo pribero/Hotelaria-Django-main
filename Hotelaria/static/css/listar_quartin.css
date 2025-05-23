@@ -24,7 +24,7 @@ h1 {
 }
 
 .filtros .btn {
-  background-color: #3b82f6; /* azul bacanudo */
+  background-color: #e2d4bd; /* azul bacanudo */
   color: white;
   padding: 10px 20px;
   border-radius: 25px;
@@ -34,7 +34,7 @@ h1 {
 }
 
 .filtros .btn:hover {
-  background-color: #2563eb; /* azul mais escuro no hover */
+  background-color: #81786b; /* azul mais escuro no hover */
 }
 
 /* Título do filtro ativo */

@@ -6,14 +6,14 @@
 {% endblock %}
 
 {% block head %}
-    <link rel="stylesheet" href="{% static 'css/addQuartos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/addQuarto.css' %}">
 {% endblock %}
 
 {% block body %}
-    <div class="form-wrapper"> {# Nova div para centralizar o formulário #}
+    <div class="form-wrapper">
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
-            <h2>Cadastrar Novo Quarto</h2> {# Adicionei um título para o formulário #}
+            <h2>Cadastrar Novo Quarto</h2>
             <div>
                 <label for="id_num_quarto">Numero do Quarto: </label>
                 {{ form.num_Quarto }}
