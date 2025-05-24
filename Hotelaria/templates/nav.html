@@ -13,10 +13,10 @@
             <span class="nav-toggle-bar"></span>
             <span class="nav-toggle-bar"></span>
         </div>
-        
+
         {% if request.user.is_authenticated %}
-            {% if user.groups.all.0.name == "Gerente" %}
-                    <ul class="nav-menu" id="navMenu">
+            {% if user.groups.all.0.name == "Atendente" %}
+                <ul class="nav-menu" id="navMenu">
                     <li class="nav-item">
                         <a href="/listar_quartin" class="nav-link">QUARTO</a>
                     </li>
@@ -27,20 +27,19 @@
                         <a href="/logout" class="nav-link">LOGOUT</a>
                     </li>
                 </ul>
-        
             {% else %}
-            <ul class="nav-menu" id="navMenu">  
-                    <li class="nav-item">   
+                 <ul class="nav-menu" id="navMenu">
+                    <li class="nav-item">
                         <a href="/listar_quartin" class="nav-link">QUARTO</a>
                     </li>
                     <li class="nav-item">
                         <a href="/reserva" class="nav-link">RESERVAS</a>
                     </li>
                     <li class="nav-item">
-                        <a href="/addQuarto" class="nav-link">ADD QUARTO</a>
+                        <a href="/addQuarto" class="nav-link">ADICIONAR QUARTO</a>
                     </li>
                     <li class="nav-item">
-                        <a href="/addColabo" class="nav-link">ADD COLABORADOR</a>
+                        <a href="/addColabo" class="nav-link">ADICIONAR ATENDENTE</a>
                     </li>
                     <li class="nav-item">
                         <a href="/logout" class="nav-link">LOGOUT</a>

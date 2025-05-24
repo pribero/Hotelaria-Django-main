@@ -29,10 +29,3 @@ class quarto(models.Model):
     def __str__(self):
         x = f"{self.tipo} - {self.num_Quarto}"
         return x
-
-class Atendente(models.Model):
-    username = models.CharField(max_length=255)
-    password = models.CharField(max_length=128)
-
-    def __str__(self):
-        return self.username

@@ -4,4 +4,3 @@ from .models import *
 # Register your models here.
 admin.site.register(homepage)
 admin.site.register(quarto)
-admin.site.register(Atendente)

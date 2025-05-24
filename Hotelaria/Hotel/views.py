@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import logout, authenticate, login
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import Group
 from .models import *
 from .forms import *
 
@@ -18,7 +19,7 @@ def Login(request):
         password = request.POST['password']
         
         user = authenticate(request, username=username, password=password)
-        
+
         if user is not None:
             login(request, user)
             return redirect('homepage')
@@ -46,28 +47,25 @@ def addQuarto(request):
     context = {'form': form}
     return render(request, 'addQuartos.html', context)
 
+    
 @login_required(login_url='/') 
 def addColabo(request):
     if request.method == 'POST':
         form = AtendenteForms(request.POST)
 
         if form.is_valid():
-            username = request.POST.get('username')
-            password = request.POST.get('password')
+            user = form.save(commit=False)
+            user.set_password(form.cleaned_data['password'])
+            user.save()
+            user.groups.clear()
+            grupo = Group.objects.get(name='Atendente')
+            user.groups.add(grupo)
 
-        if Atendente.objects.filter(password=password).exists():
-            messages.error(request, 'Senha existente')
-        else:
-            atendente = Atendente(username=username, password=password)
-            atendente.save()
             messages.success(request, 'Atendente cadastrado com sucesso!')
             return redirect('addColabo')
-
     else:
         form = AtendenteForms()
     return render(request, 'addColabos.html', {'form': form})
-
-
 
 @login_required(login_url='/')  
 def reserva(request):
@@ -89,7 +87,26 @@ def listar_quartin(request, tipo_quarto=None):
 
     return render(request, 'listar_quartin.html', context)
 
+@login_required(login_url='/')
+def editar_quartin(request, id):
+    quarto_editar = quarto.objects.get(id=id)
+    
+    if request.method == 'POST':
+        form = quartoForms(request.POST, request.FILES, instance=quarto_editar)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Quarto editado com sucesso!')
+            return redirect('listar_quartin')
+    else:
+        form = quartoForms(instance=quarto_editar)
 
+    context = {'form': form}
+    return render(request, 'editar_quartin.html', context)
+
+@login_required(login_url='/')
+def addHospede(request):
+    if request.method == 'POST':
+        pass
 
 def Sair(request):
     logout(request)

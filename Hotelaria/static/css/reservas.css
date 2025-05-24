@@ -1,0 +1,30 @@
+/* Configurações globais */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap');
+
+:root {
+    --background-color: #ffffff;
+    --card-bg-color: #f2f2f2;
+    --text-color: #181818;
+    --border-color: #e0e0e0;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    background-color: #f2f2f2;
+}
+

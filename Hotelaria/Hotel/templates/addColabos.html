@@ -14,17 +14,19 @@
         <form method="POST">
             <h1>Cadastrar Atendente</h1>
             {% csrf_token %}
-            <div class="form-tag">
-                <label for="username">Nome atendente: </label>
-                {{form.username}}
-            </div>
-            <div class="form-tag">
-                <label for="password">Senha atendente: </label>
-                {{form.password}}
-            </div>
+            <div class="input-group">
+                         <label for="username">Usuário</label>
+                         <input type="text" id="username" name="username" required/>
 
-            <button type="submit">Cadastrar</button>
-
+                    </div>
+                    <div class="input-group">
+                        <label for="password">Senha</label>
+                        <input type="password" id="password" name="password" required/>
+                    </div>
+                    <button type="submit">Cadastrar</button>
+                    {% if alerta %}
+                        <p class="mlk-chato">{{ alerta }}</p>
+                    {% endif %}
         </form>
     </div>
 {% endblock %}

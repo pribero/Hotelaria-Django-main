@@ -1,5 +1,7 @@
 from django import forms
-from .models import quarto, Atendente
+from django.contrib.auth.models import User
+from .models import *
+
 
 class quartoForms(forms.ModelForm):
     class Meta:
@@ -8,10 +10,8 @@ class quartoForms(forms.ModelForm):
 
 class AtendenteForms(forms.ModelForm):
     class Meta:
-        model = Atendente
+        model = User
         fields = ['username', 'password']
-
-    def form_valid(self, form):
-
-        form.cleaned_data['grupo'] = Atendente
-        return super().form_valid(form)
+        widgets = {
+            'password': forms.PasswordInput()  
+        }

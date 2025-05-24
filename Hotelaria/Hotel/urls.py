@@ -9,6 +9,7 @@ urlpatterns = [
     path('addColabo', views.addColabo, name="addColabo"),
     path('listar_quartin/', views.listar_quartin, name='listar_quartin'),
     path('listar_quartin/<str:tipo_quarto>/', views.listar_quartin, name='listar_quartin'),
+    path('editar_quarto/<int:id>/', views.editar_quartin, name='editar_quartin'),
     path('reserva', views.reserva, name='reserva')
 
 ]
